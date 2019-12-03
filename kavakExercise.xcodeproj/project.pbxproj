@@ -18,6 +18,9 @@
 		D4661E142396F2BB00B7502A /* customLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4661E132396F2BB00B7502A /* customLayout.swift */; };
 		D481DB0323970C390020744C /* infoGnomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481DB0223970C390020744C /* infoGnomeViewController.swift */; };
 		D48CB9C923971061009D7AAA /* segmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9C823971061009D7AAA /* segmentControl.swift */; };
+		D48CB9CE239718A5009D7AAA /* professionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9CD239718A5009D7AAA /* professionsTableViewController.swift */; };
+		D48CB9D0239718B1009D7AAA /* infoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9CF239718B1009D7AAA /* infoTableViewController.swift */; };
+		D48CB9D2239718BF009D7AAA /* friendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9D1239718BF009D7AAA /* friendsTableViewController.swift */; };
 		D4B2505D2396F9A700392D85 /* gnomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B2505C2396F9A700392D85 /* gnomeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,9 @@
 		D4661E132396F2BB00B7502A /* customLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customLayout.swift; sourceTree = "<group>"; };
 		D481DB0223970C390020744C /* infoGnomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoGnomeViewController.swift; sourceTree = "<group>"; };
 		D48CB9C823971061009D7AAA /* segmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segmentControl.swift; sourceTree = "<group>"; };
+		D48CB9CD239718A5009D7AAA /* professionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = professionsTableViewController.swift; sourceTree = "<group>"; };
+		D48CB9CF239718B1009D7AAA /* infoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableViewController.swift; sourceTree = "<group>"; };
+		D48CB9D1239718BF009D7AAA /* friendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsTableViewController.swift; sourceTree = "<group>"; };
 		D4B2505C2396F9A700392D85 /* gnomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gnomeCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +142,9 @@
 		D481DB0123970C250020744C /* infoGnome */ = {
 			isa = PBXGroup;
 			children = (
+				D48CB9CC2397188A009D7AAA /* professions */,
+				D48CB9CB23971884009D7AAA /* info */,
+				D48CB9CA23971876009D7AAA /* friends */,
 				D481DB0223970C390020744C /* infoGnomeViewController.swift */,
 			);
 			path = infoGnome;
@@ -147,6 +156,30 @@
 				D48CB9C823971061009D7AAA /* segmentControl.swift */,
 			);
 			path = customSegmentControl;
+			sourceTree = "<group>";
+		};
+		D48CB9CA23971876009D7AAA /* friends */ = {
+			isa = PBXGroup;
+			children = (
+				D48CB9D1239718BF009D7AAA /* friendsTableViewController.swift */,
+			);
+			path = friends;
+			sourceTree = "<group>";
+		};
+		D48CB9CB23971884009D7AAA /* info */ = {
+			isa = PBXGroup;
+			children = (
+				D48CB9CF239718B1009D7AAA /* infoTableViewController.swift */,
+			);
+			path = info;
+			sourceTree = "<group>";
+		};
+		D48CB9CC2397188A009D7AAA /* professions */ = {
+			isa = PBXGroup;
+			children = (
+				D48CB9CD239718A5009D7AAA /* professionsTableViewController.swift */,
+			);
+			path = professions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,7 +255,10 @@
 			files = (
 				D4B2505D2396F9A700392D85 /* gnomeCollectionViewCell.swift in Sources */,
 				D481DB0323970C390020744C /* infoGnomeViewController.swift in Sources */,
+				D48CB9D2239718BF009D7AAA /* friendsTableViewController.swift in Sources */,
 				D4661E142396F2BB00B7502A /* customLayout.swift in Sources */,
+				D48CB9CE239718A5009D7AAA /* professionsTableViewController.swift in Sources */,
+				D48CB9D0239718B1009D7AAA /* infoTableViewController.swift in Sources */,
 				175469092396268D001A43A9 /* ViewController.swift in Sources */,
 				17E3F99E23963216007DF243 /* extensionDictionary.swift in Sources */,
 				17E3F998239628E1007DF243 /* gnome.swift in Sources */,

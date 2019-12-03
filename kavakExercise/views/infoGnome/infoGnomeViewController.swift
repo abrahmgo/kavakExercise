@@ -11,6 +11,7 @@ import UIKit
 class infoGnomeViewController: UIViewController, segmentControlDelegate {
 
     
+    @IBOutlet var containerView: UIView!
     @IBOutlet var selector: segmentControl!
     
     var infoGnome : gnome?
@@ -28,13 +29,100 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
         selector.backgroundColor = .clear
         if infoGnome != nil
         {
-            print(infoGnome!)
+            setupView(index: 0)
         }
     }
     
     func changeToIndex(index: Int) {
-        print(index)
+        setupView(index: index)
     }
     
+    
+    //functions for info
+    
+    func setupView(index: Int)
+    {
+        switch index {
+        case 0:
+            remove(asChildViewController: friendGnomeView)
+            remove(asChildViewController: professionGnomeView)
+            add(asChildViewController: infoGnomeView)
+        case 1:
+            remove(asChildViewController: infoGnomeView)
+            remove(asChildViewController: professionGnomeView)
+            add(asChildViewController: friendGnomeView)
+        case 2:
+            remove(asChildViewController: friendGnomeView)
+            remove(asChildViewController: infoGnomeView)
+            add(asChildViewController: professionGnomeView)
+        default:
+            print("error")
+        }
+    }
+    
+    private func add(asChildViewController viewController: UIViewController) {
+        
+        // Add Child View Controller
+        addChild(viewController)
+        
+        // Add Child View as Subview
+        containerView.addSubview(viewController.view)
+        
+        // Configure Child View
+        viewController.view.frame = containerView.bounds
+        viewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        // Notify Child View Controller
+        viewController.didMove(toParent: self)
+    }
+    
+    private func remove(asChildViewController viewController: UIViewController) {
+        // Notify Child View Controller
+        viewController.willMove(toParent: nil)
+        
+        // Remove Child View From Superview
+        viewController.view.removeFromSuperview()
+        
+        // Notify Child View Controller
+        viewController.removeFromParent()
+    }
+    
+    private lazy var infoGnomeView: infoTableViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "infoAboutGnome") as! infoTableViewController
+        viewController.infoGnome = self.infoGnome!
+        // Add View Controller as Child View Controller
+        self.addChild(viewController)
+        
+        return viewController
+    }()
+    
+    private lazy var professionGnomeView: professionsTableViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "professionsGnome") as! professionsTableViewController
+        viewController.infoGnome = self.infoGnome!
+        // Add View Controller as Child View Controller
+        self.addChild(viewController)
+        
+        return viewController
+    }()
 
+    private lazy var friendGnomeView: friendsTableViewController = {
+        // Load Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        // Instantiate View Controller
+        var viewController = storyboard.instantiateViewController(withIdentifier: "gnomeFriends") as! friendsTableViewController
+        viewController.infoGnome = self.infoGnome!
+        // Add View Controller as Child View Controller
+        self.addChild(viewController)
+        
+        return viewController
+    }()
 }

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HCg-9C-YFO">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="kavakExercise" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="je9-g5-CKi">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewLayout key="collectionViewLayout" id="Uwp-l4-qQ2" customClass="customLayout" customModule="kavakExercise" customModuleProvider="target"/>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="rqp-7a-fUE" customClass="gnomeCollectionViewCell" customModule="kavakExercise" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="260"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hZv-rx-Lsa">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="260"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X25-mX-Z3a">
+                                                    <rect key="frame" x="8" y="15" width="144" height="144"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pJ-Gd-NC6">
+                                                    <rect key="frame" x="8" y="178" width="144" height="59"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="59" id="UXH-YX-3Ci"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="X25-mX-Z3a" firstAttribute="top" secondItem="hZv-rx-Lsa" secondAttribute="top" constant="15" id="EoE-6X-Hua"/>
+                                                <constraint firstAttribute="bottom" secondItem="5pJ-Gd-NC6" secondAttribute="bottom" constant="23" id="TAB-BB-cOP"/>
+                                                <constraint firstItem="5pJ-Gd-NC6" firstAttribute="top" secondItem="X25-mX-Z3a" secondAttribute="bottom" constant="19" id="b1k-LS-bM0"/>
+                                                <constraint firstItem="X25-mX-Z3a" firstAttribute="trailing" secondItem="5pJ-Gd-NC6" secondAttribute="trailing" id="ekC-pb-TQm"/>
+                                                <constraint firstItem="X25-mX-Z3a" firstAttribute="leading" secondItem="5pJ-Gd-NC6" secondAttribute="leading" id="kzI-vI-geB"/>
+                                                <constraint firstItem="X25-mX-Z3a" firstAttribute="trailing" secondItem="hZv-rx-Lsa" secondAttribute="trailingMargin" id="tS3-dW-dGp"/>
+                                                <constraint firstItem="X25-mX-Z3a" firstAttribute="leading" secondItem="hZv-rx-Lsa" secondAttribute="leadingMargin" id="v1B-8l-pf0"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <size key="customSize" width="160" height="260"/>
+                                        <connections>
+                                            <outlet property="gnomeName" destination="5pJ-Gd-NC6" id="NgU-Uu-TWb"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="je9-g5-CKi" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xdu-xd-Uw1"/>
+                            <constraint firstItem="je9-g5-CKi" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="adg-ub-khN"/>
+                            <constraint firstItem="je9-g5-CKi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="hi0-Xd-2M3"/>
+                            <constraint firstItem="je9-g5-CKi" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tig-r9-DVj"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oVa-ef-Hq4"/>
+                    <connections>
+                        <outlet property="collectionView" destination="je9-g5-CKi" id="MdJ-rw-4F2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="880.79999999999995" y="126.38680659670166"/>
+        </scene>
+        <!--Info Gnome View Controller-->
+        <scene sceneID="8DY-m1-rYy">
+            <objects>
+                <viewController storyboardIdentifier="gnomeInfo" id="aVs-4x-jAg" customClass="infoGnomeViewController" customModule="kavakExercise" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uYc-uc-d8A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nrn-M0-k2P">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6qq-Po-PJk" customClass="segmentControl" customModule="kavakExercise" customModuleProvider="target">
+                                <rect key="frame" x="16" y="383" width="343" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="nfF-e3-ZiC"/>
+                    </view>
+                    <connections>
+                        <outlet property="selector" destination="6qq-Po-PJk" id="hFL-v3-3sq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bxj-JR-ZYu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1557.5999999999999" y="125.4872563718141"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="oF4-Ol-ZYj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="HCg-9C-YFO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="sBz-BG-dsp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="zQv-YS-ztM">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="qCz-QL-PRG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GoJ-NO-N7E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-58.399999999999999" y="126.38680659670166"/>
+        </scene>
+    </scenes>
+</document>

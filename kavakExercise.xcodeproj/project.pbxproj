@@ -60,15 +60,14 @@
 		175469052396268D001A43A9 /* kavakExercise */ = {
 			isa = PBXGroup;
 			children = (
+				17E3F99F23963551007DF243 /* supportingFiles */,
 				17E3F99C23963208007DF243 /* extension */,
 				17E3F999239629D1007DF243 /* api */,
 				17E3F996239628B8007DF243 /* models */,
-				175469062396268D001A43A9 /* AppDelegate.swift */,
 				175469082396268D001A43A9 /* ViewController.swift */,
 				1754690A2396268D001A43A9 /* Main.storyboard */,
 				1754690D2396268E001A43A9 /* Assets.xcassets */,
 				1754690F2396268E001A43A9 /* LaunchScreen.storyboard */,
-				175469122396268E001A43A9 /* Info.plist */,
 			);
 			path = kavakExercise;
 			sourceTree = "<group>";
@@ -95,6 +94,15 @@
 				17E3F99D23963216007DF243 /* extensionDictionary.swift */,
 			);
 			path = extension;
+			sourceTree = "<group>";
+		};
+		17E3F99F23963551007DF243 /* supportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				175469062396268D001A43A9 /* AppDelegate.swift */,
+				175469122396268E001A43A9 /* Info.plist */,
+			);
+			path = supportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -10,11 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let apiManagement = api(url: "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        apiManagement.downloadData { (status, info) in
+            if status != 200
+            {
+                print("algo salio mal")
+            }
+            else
+            {
+                self.cleanData(data: info)
+            }
+        }
     }
 
+    func cleanData(data:[String:Any])
+    {
+        if let info = data["Brastlewark"] as? [[String:Any]]
+        {
+            apiManagement.cleanGnomes(data: info) { (gnomes) in
+                print(gnomes)
+            }
+        }
+    }
 
 }
 

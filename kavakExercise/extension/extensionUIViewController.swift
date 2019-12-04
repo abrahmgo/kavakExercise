@@ -16,4 +16,13 @@ extension UIViewController{
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func showAlertMessageCompletion(titleStr:String, messageStr:String, completion: @escaping ((Bool) -> Void)) {
+        let alert = UIAlertController(title: titleStr, message: messageStr, preferredStyle: UIAlertController.Style.alert)
+        let action = UIAlertAction(title: "Aceptar", style: .default) { (_) in
+            completion(true)
+        }
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
 }

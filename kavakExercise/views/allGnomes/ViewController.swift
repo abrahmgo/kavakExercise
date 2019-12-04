@@ -34,6 +34,13 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         initView()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+//        if useFlag == 2
+//        {
+//            checkLocalData()
+//        }
+    }
+    
     func initView()
     {
         self.navigationController?.hero.isEnabled = true
@@ -93,10 +100,22 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
                     self.collectionView.reloadData()
                 }
             }
+            else
+            {
+                DispatchQueue.main.async {
+                    self.showAlertMessageCompletion(titleStr: "Gnome", messageStr: "you're a forever alone 🥶", completion: { (_) in
+                        self.navigationController?.popToRootViewController(animated: true)
+                    })
+                }
+            }
             
         }catch let error as NSError{
-            self.showAlertMessage(titleStr: "Gnome", messageStr: "we can't recover your family 😓. \(error)")
             print("error \(error) \(error.userInfo)")
+            DispatchQueue.main.async {
+                self.showAlertMessageCompletion(titleStr: "Gnome", messageStr: "somethin is wrong \(error) \(error.userInfo) 🤬", completion: { (_) in
+                    self.navigationController?.popToRootViewController(animated: true)
+                })
+            }
         }
     }
     

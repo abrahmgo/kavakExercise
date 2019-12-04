@@ -55,6 +55,7 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
         {
             if result.count != 0
             {
+                favoriteButton.isSelected = true
                 favoriteButton.setBackgroundImage(UIImage(named: "favorite"), for: .normal)
             }
             else

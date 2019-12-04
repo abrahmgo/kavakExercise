@@ -83,6 +83,7 @@ class coreDataManager {
         do {
             let result = try context.fetch(fetchRequest) as! [NSManagedObject]
             context.delete(result[0])
+            _ = coreDataManager.shared.saveContext()
             return true
             
         } catch let error {

@@ -19,6 +19,9 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     private var arrGnomes = [gnome]()
     private var arrGnomesFilter = [gnome]()
     private var enableFilter = false
+    private var arrImages = [String:UIImage]()
+    
+    var dispatchGroup = DispatchGroup()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
 
     func initView()
     {
+        self.navigationController?.hero.isEnabled = true
         self.navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = "Citizens"
         filterButton.backgroundColor = .lightGray
@@ -152,12 +156,11 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         }
         if arrGnomesFilter.count == 0
         {
-            self.showAlertMessage(titleStr: "Gnomes", messageStr: "Without results")
+            self.showAlertMessage(titleStr: "Gnomes", messageStr: "Nobody is perfect, try again 🤬")
         }
         else
         {
             collectionView.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-            print(arrGnomesFilter.count)
             disappearFilter()
             showDataFilter()
         }
@@ -168,13 +171,20 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     {
         if let info = data["Brastlewark"] as? [[String:Any]]
         {
-            api.shared.cleanGnomes(data: info) { (gnomes) in
-                DispatchQueue.main.async {
-                    self.arrGnomes = gnomes
-                    print(self.arrGnomes.count)
-                    self.collectionView.reloadData()
-                    self.initValuesFilter()
+            if info.count != 0
+            {
+                api.shared.cleanGnomes(data: info) { (gnomes) in
+                    DispatchQueue.main.async {
+                        self.arrGnomes = gnomes
+                        self.downloadImages()
+                        self.collectionView.reloadData()
+                        self.initValuesFilter()
+                    }
                 }
+            }
+            else
+            {
+                self.showAlertMessage(titleStr: "Gnomes", messageStr: "The town is abandoned 😱")
             }
         }
     }
@@ -205,6 +215,29 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         let hairColor = self.arrGnomes.map( {$0.hairColor })
         let reduceHair = Array(Set(hairColor))
         self.filterView.optionsHairColor = reduceHair
+    }
+    
+    func downloadImages()
+    {
+        let images = self.arrGnomes.map( {$0.thumbnail} )
+        let reduceImages = Array(Set(images))
+        if reduceImages.count != 0
+        {
+            for urlImage in reduceImages
+            {
+                dispatchGroup.enter()
+                let imageDownloaded = UIImage()
+                imageDownloaded.downloaded(from: urlImage) { (image, urlImage2) in
+                    DispatchQueue.main.async {
+                        self.arrImages[urlImage2] = image
+                        self.dispatchGroup.leave()
+                    }
+                }
+            }
+            dispatchGroup.notify(queue: .main) {
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     @IBAction func showFilter(_ sender: UIButton) {
@@ -274,12 +307,28 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
             cell.addShadowToCard(color: .black)
             if enableFilter
             {
+                if arrImages.count != 0
+                {
+                    if let image = arrImages[arrGnomesFilter[indexPath.row].thumbnail]
+                    {
+                        cell.gnomeImage.image = image
+                    }
+                }
                 cell.gnomeName.text = arrGnomesFilter[indexPath.row].name
             }
             else
             {
+                if arrImages.count != 0
+                {
+                    if let image = arrImages[arrGnomes[indexPath.row].thumbnail]
+                    {
+                        cell.gnomeImage.image = image
+                    }
+                }
                 cell.gnomeName.text = arrGnomes[indexPath.row].name
             }
+            cell.gnomeImage.hero.id = "image\(indexPath.row)"
+            cell.hero.id = "Cell\(indexPath.row)"
             return cell
         }
         
@@ -287,18 +336,32 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
             let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "gnomeInfo") as! infoGnomeViewController
             if enableFilter
             {
+                if arrImages.count != 0
+                {
+                    if let image = arrImages[arrGnomesFilter[indexPath.row].thumbnail]
+                    {
+                        VC1.imageGnome = image
+                    }
+                }
                 VC1.infoGnome = arrGnomesFilter[indexPath.row]
             }
             else
             {
+                if arrImages.count != 0
+                {
+                    if let image = arrImages[arrGnomes[indexPath.row].thumbnail]
+                    {
+                        VC1.imageGnome = image
+                    }
+                }
                 VC1.infoGnome = arrGnomes[indexPath.row]
             }
-//            VC1.dataFavorite = arrFavoriteBanks[indexPath.row]
-//            VC1.flagUse = 2
+
             VC1.hero.isEnabled = true
             VC1.view.hero.id = "Cell\(indexPath.row)"
+            VC1.profileImage.hero.id = "image\(indexPath.row)"
+            self.navigationController?.hero.modalAnimationType = .auto
             self.navigationController?.pushViewController(VC1, animated: true)
-    //        self.navigationController?.popViewController(animated: true)
         }
         
         func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {

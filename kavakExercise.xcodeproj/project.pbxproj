@@ -33,6 +33,7 @@
 		D4C2FAA623980B3600A403CC /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAA523980B3600A403CC /* mainViewController.swift */; };
 		D4C2FAA9239815BB00A403CC /* buttonStyleBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */; };
 		D4C2FAAB23981C2D00A403CC /* extensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAAA23981C2D00A403CC /* extensionUIViewController.swift */; };
+		D4C43F3623982BFD00237A1A /* extensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C43F3523982BFD00237A1A /* extensionUIImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		D4C2FAA523980B3600A403CC /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonStyleBorder.swift; sourceTree = "<group>"; };
 		D4C2FAAA23981C2D00A403CC /* extensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIViewController.swift; sourceTree = "<group>"; };
+		D4C43F3523982BFD00237A1A /* extensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				17E3F99D23963216007DF243 /* extensionDictionary.swift */,
 				D42CC16A2397307800A2E498 /* extensionUIView.swift */,
 				D4C2FAAA23981C2D00A403CC /* extensionUIViewController.swift */,
+				D4C43F3523982BFD00237A1A /* extensionUIImage.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				D4B2505D2396F9A700392D85 /* gnomeCollectionViewCell.swift in Sources */,
 				D42CC16F23973EBD00A2E498 /* infoTableViewCell.swift in Sources */,
 				D481DB0323970C390020744C /* infoGnomeViewController.swift in Sources */,
+				D4C43F3623982BFD00237A1A /* extensionUIImage.swift in Sources */,
 				D42CC16D239737AA00A2E498 /* apiNames.swift in Sources */,
 				D42CC16923972F8400A2E498 /* professionTableViewCell.swift in Sources */,
 				D48CB9D2239718BF009D7AAA /* friendsTableViewController.swift in Sources */,

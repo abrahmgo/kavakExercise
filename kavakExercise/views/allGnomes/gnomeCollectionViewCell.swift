@@ -10,4 +10,5 @@ import UIKit
 
 class gnomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet var gnomeName: UILabel!
+    @IBOutlet var gnomeImage: UIImageView!
 }

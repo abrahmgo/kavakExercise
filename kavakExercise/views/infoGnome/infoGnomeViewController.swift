@@ -17,6 +17,7 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
     @IBOutlet var selector: segmentControl!
     
     var infoGnome : gnome?
+    var imageGnome : UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +29,16 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
     {
         self.hero.isEnabled = true
         self.navigationController?.hero.isEnabled = true
-
+        
         selector.delegate = self
         selector.setButtonTitles(buttonTitles: ["Profile","Friends","Jobs"])
         if infoGnome != nil
         {
             setupView(index: 0)
+        }
+        if imageGnome != nil
+        {
+            profileImage.image = imageGnome!
         }
         let names = infoGnome!.name.split(separator: " ")
         api.shared.getGender(name: String(names[0]), lastName: String(names[1])) { (status, info) in
@@ -57,7 +62,7 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
             imageGender = "other"
         }
         DispatchQueue.main.async {
-            self.profileImage.image = UIImage(named: imageGender)
+            //self.profileImage.image = UIImage(named: imageGender)
         }
     }
     

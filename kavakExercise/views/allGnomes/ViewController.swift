@@ -12,8 +12,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
 
     @IBOutlet var collectionView: UICollectionView!
     private var arrGnomes = [gnome]()
-    let apiManagement = api(url: "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -26,7 +25,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         if let layout = collectionView?.collectionViewLayout as? customLayout {
             layout.delegate = self
         }
-        apiManagement.downloadData { (status, info) in
+        api.shared.downloadData { (status, info) in
             if status != 200
             {
                 print("algo salio mal")
@@ -42,9 +41,20 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     {
         if let info = data["Brastlewark"] as? [[String:Any]]
         {
-            apiManagement.cleanGnomes(data: info) { (gnomes) in
+            api.shared.cleanGnomes(data: info) { (gnomes) in
                 DispatchQueue.main.async {
                     self.arrGnomes = gnomes
+                    let profession = self.arrGnomes.map { $0.height }
+                    //let reduce = profession.reduce([], +)
+                    print(profession.min())
+                    print(profession.max())
+                    
+                    let profession2 = self.arrGnomes.map { $0.weight }
+                    //let reduce = profession.reduce([], +)
+                    print(profession2.min())
+                    print(profession2.max())
+//                    let unique = Array(Set(profession))
+//                    print(unique)
                     self.collectionView.reloadData()
                 }
             }
@@ -58,6 +68,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let identifier = "Cell"
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! gnomeCollectionViewCell
+            cell.addShadowToCard(color: .black)
             cell.gnomeName.text = arrGnomes[indexPath.row].name
             return cell
         }

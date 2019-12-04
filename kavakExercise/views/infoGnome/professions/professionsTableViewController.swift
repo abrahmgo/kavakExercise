@@ -43,13 +43,15 @@ class professionsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = professions[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! professionTableViewCell
+        cell.title.text = professions[indexPath.row].trimmingCharacters(in: .whitespaces)
+        cell.showImage.image = UIImage(named: professions[indexPath.row].trimmingCharacters(in: .whitespaces))
         // Configure the cell...
 
         return cell
     }
-    
 
-
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 62.0
+    }
 }

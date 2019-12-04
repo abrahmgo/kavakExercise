@@ -12,7 +12,7 @@ class infoTableViewController: UITableViewController {
 
     var infoGnome : gnome?
     private var info = [String]()
-    private var titles = ["Name","Height","Weight","Age","Hair"]
+    private var titles = ["Name","Height","Weight","Age","Hair","Gender"]
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
@@ -25,6 +25,7 @@ class infoTableViewController: UITableViewController {
         info.append(String(infoGnome!.weight))
         info.append(String(infoGnome!.age))
         info.append(infoGnome!.hairColor)
+        info.append("")
     }
     // MARK: - Table view data source
 
@@ -40,11 +41,23 @@ class infoTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! infoTableViewCell
 
         // Configure the cell...
-        cell.textLabel?.text = titles[indexPath.row]+":" + " " + info[indexPath.row]
+        cell.title.text = titles[indexPath.row]+":" + " " + info[indexPath.row]
+        if titles[indexPath.row] == "Gender"
+        {
+            cell.showImage.image = UIImage(named: "male")
+        }
+        else
+        {
+            cell.showImage.image = nil
+        }
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 62.0
     }
     
 }

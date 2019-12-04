@@ -11,6 +11,7 @@ import UIKit
 class infoGnomeViewController: UIViewController, segmentControlDelegate {
 
     
+    @IBOutlet var profileImage: UIImageView!
     @IBOutlet var containerView: UIView!
     @IBOutlet var selector: segmentControl!
     
@@ -25,11 +26,14 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
     func initView()
     {
         selector.delegate = self
-        selector.setButtonTitles(buttonTitles: ["Info","Friends","Jobs"])
-        selector.backgroundColor = .clear
+        selector.setButtonTitles(buttonTitles: ["Profile","Friends","Jobs"])
         if infoGnome != nil
         {
             setupView(index: 0)
+        }
+        let names = infoGnome!.name.split(separator: " ")
+        api.shared.getGender(name: String(names[0]), lastName: String(names[1])) { (status, info) in
+            self.cleanData(data: info)
         }
     }
     
@@ -37,6 +41,21 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
         setupView(index: index)
     }
     
+    func cleanData(data: NSDictionary)
+    {
+        var imageGender = ""
+        if let gender = data["likelyGender"] as? String
+        {
+            imageGender = gender
+        }
+        else
+        {
+            imageGender = "other"
+        }
+        DispatchQueue.main.async {
+            self.profileImage.image = UIImage(named: imageGender)
+        }
+    }
     
     //functions for info
     

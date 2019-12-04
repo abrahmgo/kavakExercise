@@ -15,6 +15,11 @@
 		17E3F998239628E1007DF243 /* gnome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E3F997239628E1007DF243 /* gnome.swift */; };
 		17E3F99B239629E3007DF243 /* api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E3F99A239629E3007DF243 /* api.swift */; };
 		17E3F99E23963216007DF243 /* extensionDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E3F99D23963216007DF243 /* extensionDictionary.swift */; };
+		D42CC16923972F8400A2E498 /* professionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CC16823972F8400A2E498 /* professionTableViewCell.swift */; };
+		D42CC16B2397307800A2E498 /* extensionUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CC16A2397307800A2E498 /* extensionUIView.swift */; };
+		D42CC16D239737AA00A2E498 /* apiNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CC16C239737AA00A2E498 /* apiNames.swift */; };
+		D42CC16F23973EBD00A2E498 /* infoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CC16E23973EBD00A2E498 /* infoTableViewCell.swift */; };
+		D42CC17123973F4F00A2E498 /* friendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CC17023973F4F00A2E498 /* friendsTableViewCell.swift */; };
 		D4661E142396F2BB00B7502A /* customLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4661E132396F2BB00B7502A /* customLayout.swift */; };
 		D481DB0323970C390020744C /* infoGnomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481DB0223970C390020744C /* infoGnomeViewController.swift */; };
 		D48CB9C923971061009D7AAA /* segmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9C823971061009D7AAA /* segmentControl.swift */; };
@@ -35,6 +40,11 @@
 		17E3F997239628E1007DF243 /* gnome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gnome.swift; sourceTree = "<group>"; };
 		17E3F99A239629E3007DF243 /* api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = api.swift; sourceTree = "<group>"; };
 		17E3F99D23963216007DF243 /* extensionDictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionDictionary.swift; sourceTree = "<group>"; };
+		D42CC16823972F8400A2E498 /* professionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = professionTableViewCell.swift; sourceTree = "<group>"; };
+		D42CC16A2397307800A2E498 /* extensionUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIView.swift; sourceTree = "<group>"; };
+		D42CC16C239737AA00A2E498 /* apiNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiNames.swift; sourceTree = "<group>"; };
+		D42CC16E23973EBD00A2E498 /* infoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableViewCell.swift; sourceTree = "<group>"; };
+		D42CC17023973F4F00A2E498 /* friendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsTableViewCell.swift; sourceTree = "<group>"; };
 		D4661E132396F2BB00B7502A /* customLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customLayout.swift; sourceTree = "<group>"; };
 		D481DB0223970C390020744C /* infoGnomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoGnomeViewController.swift; sourceTree = "<group>"; };
 		D48CB9C823971061009D7AAA /* segmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segmentControl.swift; sourceTree = "<group>"; };
@@ -96,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				17E3F99A239629E3007DF243 /* api.swift */,
+				D42CC16C239737AA00A2E498 /* apiNames.swift */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -104,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				17E3F99D23963216007DF243 /* extensionDictionary.swift */,
+				D42CC16A2397307800A2E498 /* extensionUIView.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -162,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				D48CB9D1239718BF009D7AAA /* friendsTableViewController.swift */,
+				D42CC17023973F4F00A2E498 /* friendsTableViewCell.swift */,
 			);
 			path = friends;
 			sourceTree = "<group>";
@@ -170,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				D48CB9CF239718B1009D7AAA /* infoTableViewController.swift */,
+				D42CC16E23973EBD00A2E498 /* infoTableViewCell.swift */,
 			);
 			path = info;
 			sourceTree = "<group>";
@@ -178,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				D48CB9CD239718A5009D7AAA /* professionsTableViewController.swift */,
+				D42CC16823972F8400A2E498 /* professionTableViewCell.swift */,
 			);
 			path = professions;
 			sourceTree = "<group>";
@@ -254,7 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4B2505D2396F9A700392D85 /* gnomeCollectionViewCell.swift in Sources */,
+				D42CC16F23973EBD00A2E498 /* infoTableViewCell.swift in Sources */,
 				D481DB0323970C390020744C /* infoGnomeViewController.swift in Sources */,
+				D42CC16D239737AA00A2E498 /* apiNames.swift in Sources */,
+				D42CC16923972F8400A2E498 /* professionTableViewCell.swift in Sources */,
 				D48CB9D2239718BF009D7AAA /* friendsTableViewController.swift in Sources */,
 				D4661E142396F2BB00B7502A /* customLayout.swift in Sources */,
 				D48CB9CE239718A5009D7AAA /* professionsTableViewController.swift in Sources */,
@@ -262,9 +280,11 @@
 				175469092396268D001A43A9 /* ViewController.swift in Sources */,
 				17E3F99E23963216007DF243 /* extensionDictionary.swift in Sources */,
 				17E3F998239628E1007DF243 /* gnome.swift in Sources */,
+				D42CC16B2397307800A2E498 /* extensionUIView.swift in Sources */,
 				17E3F99B239629E3007DF243 /* api.swift in Sources */,
 				175469072396268D001A43A9 /* AppDelegate.swift in Sources */,
 				D48CB9C923971061009D7AAA /* segmentControl.swift in Sources */,
+				D42CC17123973F4F00A2E498 /* friendsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,20 @@
+PODS:
+  - Hero (1.4.0)
+  - iOSDropDown (0.3.3)
+
+DEPENDENCIES:
+  - Hero
+  - iOSDropDown
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Hero
+    - iOSDropDown
+
+SPEC CHECKSUMS:
+  Hero: bac92350d7201a1a940003e0767c7b52ce7c99a1
+  iOSDropDown: ae675451f6b91cec00531c953372e09c54dbd818
+
+PODFILE CHECKSUM: c8d3714bc7dd5e42526a9751d255284b1392953b
+
+COCOAPODS: 1.7.3

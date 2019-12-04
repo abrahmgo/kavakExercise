@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class infoGnomeViewController: UIViewController, segmentControlDelegate {
 
@@ -25,6 +26,9 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
     
     func initView()
     {
+        self.hero.isEnabled = true
+        self.navigationController?.hero.isEnabled = true
+
         selector.delegate = self
         selector.setButtonTitles(buttonTitles: ["Profile","Friends","Jobs"])
         if infoGnome != nil

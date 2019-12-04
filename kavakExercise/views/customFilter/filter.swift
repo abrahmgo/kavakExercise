@@ -118,13 +118,15 @@ class filter: UIView {
             self.infoFilter["profession"] = info
         }
         
-        
+        valueAge.isUserInteractionEnabled = false
         valueAge.minimumValue = Float(minimumValueAge)
         valueAge.maximumValue = Float(maximumValueAge)
         showAge.text = String(minimumValueAge)
+        valueWeight.isUserInteractionEnabled = false
         valueWeight.minimumValue = Float(minimumValueWeight)
         valueWeight.maximumValue = Float(maximumValueWeight)
         showWeight.text = String(minimumValueWeight)
+        valueHeight.isUserInteractionEnabled = false
         valueHeight.minimumValue = Float(minimumValueHeight)
         valueHeight.maximumValue = Float(maximumValueHeight)
         showHeight.text = String(minimumValueHeight)
@@ -132,7 +134,7 @@ class filter: UIView {
 
     @IBAction func changeValueAge(_ sender: UISlider) {
         showAge.text = String(Int(sender.value))
-        self.infoFilter["age"] = sender.value
+        self.infoFilter["age"] = Int(sender.value)
     }
     
     @IBAction func changeValueWeight(_ sender: UISlider) {
@@ -151,7 +153,8 @@ class filter: UIView {
     
     @IBAction func defultFilter(_ sender: Any) {
         infoFilter.removeAll()
-        delegate?.infoFilter(infoFilter)
+        delegate?.defaultFilter(true)
+        switchAge.isOn = false
     }
     
     @IBAction func enableAge(_ sender: UISwitch) {
@@ -159,6 +162,10 @@ class filter: UIView {
         if !sender.isOn
         {
             self.infoFilter["age"] = nil
+        }
+        else
+        {
+            self.infoFilter["age"] = Int(valueAge.value)
         }
     }
     
@@ -168,6 +175,10 @@ class filter: UIView {
         {
             self.infoFilter["weight"] = nil
         }
+        else
+        {
+            self.infoFilter["weight"] = valueWeight.value
+        }
     }
     
     @IBAction func enableheight(_ sender: UISwitch) {
@@ -175,6 +186,10 @@ class filter: UIView {
         if !sender.isOn
         {
             self.infoFilter["height"] = nil
+        }
+        else
+        {
+            self.infoFilter["height"] = valueHeight.value
         }
     }
     
@@ -197,4 +212,5 @@ class filter: UIView {
 
 protocol dataFiler: class {
     func infoFilter(_ data: [String:Any])
+    func defaultFilter(_ flag: Bool)
 }

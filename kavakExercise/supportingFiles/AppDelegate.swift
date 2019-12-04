@@ -44,9 +44,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func customNavigationBar()
     {
-        UINavigationBar.appearance().barStyle = .blackOpaque
+        //UINavigationBar.appearance().barStyle = .blackOpaque
         UINavigationBar.appearance().tintColor = .black
-        UINavigationBar.appearance().barTintColor = .white
+        UINavigationBar.appearance().barTintColor = .lightGray
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back")?.withRenderingMode(.alwaysOriginal)

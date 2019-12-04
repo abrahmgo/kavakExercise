@@ -31,6 +31,10 @@ class customLayout: UICollectionViewLayout {
         return collectionView.bounds.width - (insets.left + insets.right)
     }
     
+    func reloadData(){
+        self.cache = [UICollectionViewLayoutAttributes]()
+    }
+    
     // 5
     override var collectionViewContentSize: CGSize {
         return CGSize(width: contentWidth, height: contentHeight)
@@ -109,6 +113,8 @@ class customLayout: UICollectionViewLayout {
         -> UICollectionViewLayoutAttributes? {
             return cache[indexPath.item]
     }
+    
+    
     
 }
 

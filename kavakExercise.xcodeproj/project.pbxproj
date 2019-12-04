@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -30,6 +30,9 @@
 		D48CB9D0239718B1009D7AAA /* infoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9CF239718B1009D7AAA /* infoTableViewController.swift */; };
 		D48CB9D2239718BF009D7AAA /* friendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9D1239718BF009D7AAA /* friendsTableViewController.swift */; };
 		D4B2505D2396F9A700392D85 /* gnomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B2505C2396F9A700392D85 /* gnomeCollectionViewCell.swift */; };
+		D4C2FAA623980B3600A403CC /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAA523980B3600A403CC /* mainViewController.swift */; };
+		D4C2FAA9239815BB00A403CC /* buttonStyleBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */; };
+		D4C2FAAB23981C2D00A403CC /* extensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAAA23981C2D00A403CC /* extensionUIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		D48CB9CF239718B1009D7AAA /* infoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableViewController.swift; sourceTree = "<group>"; };
 		D48CB9D1239718BF009D7AAA /* friendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsTableViewController.swift; sourceTree = "<group>"; };
 		D4B2505C2396F9A700392D85 /* gnomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gnomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		D4C2FAA523980B3600A403CC /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
+		D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonStyleBorder.swift; sourceTree = "<group>"; };
+		D4C2FAAA23981C2D00A403CC /* extensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +110,7 @@
 		175469052396268D001A43A9 /* kavakExercise */ = {
 			isa = PBXGroup;
 			children = (
+				D4C2FAA7239815A100A403CC /* styles */,
 				D4661E122396F10E00B7502A /* views */,
 				17E3F99F23963551007DF243 /* supportingFiles */,
 				17E3F99C23963208007DF243 /* extension */,
@@ -136,6 +143,7 @@
 			children = (
 				17E3F99D23963216007DF243 /* extensionDictionary.swift */,
 				D42CC16A2397307800A2E498 /* extensionUIView.swift */,
+				D4C2FAAA23981C2D00A403CC /* extensionUIViewController.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -164,13 +172,13 @@
 				36E54F1EC1C8534CFD523064 /* Pods-kavakExercise.debug.xcconfig */,
 				16E758B4FE47FC925464DC5B /* Pods-kavakExercise.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		D4661E122396F10E00B7502A /* views */ = {
 			isa = PBXGroup;
 			children = (
+				D4C2FAA423980B2600A403CC /* main */,
 				17152C5123976FAF00EAE6B7 /* customFilter */,
 				D48CB9C723971048009D7AAA /* customSegmentControl */,
 				D481DB0123970C250020744C /* infoGnome */,
@@ -234,6 +242,22 @@
 				D42CC16823972F8400A2E498 /* professionTableViewCell.swift */,
 			);
 			path = professions;
+			sourceTree = "<group>";
+		};
+		D4C2FAA423980B2600A403CC /* main */ = {
+			isa = PBXGroup;
+			children = (
+				D4C2FAA523980B3600A403CC /* mainViewController.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
+		D4C2FAA7239815A100A403CC /* styles */ = {
+			isa = PBXGroup;
+			children = (
+				D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */,
+			);
+			path = styles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -361,8 +385,11 @@
 				D4661E142396F2BB00B7502A /* customLayout.swift in Sources */,
 				D48CB9CE239718A5009D7AAA /* professionsTableViewController.swift in Sources */,
 				D48CB9D0239718B1009D7AAA /* infoTableViewController.swift in Sources */,
+				D4C2FAAB23981C2D00A403CC /* extensionUIViewController.swift in Sources */,
+				D4C2FAA9239815BB00A403CC /* buttonStyleBorder.swift in Sources */,
 				175469092396268D001A43A9 /* ViewController.swift in Sources */,
 				17E3F99E23963216007DF243 /* extensionDictionary.swift in Sources */,
+				D4C2FAA623980B3600A403CC /* mainViewController.swift in Sources */,
 				17152C5523976FF800EAE6B7 /* filter.swift in Sources */,
 				17E3F998239628E1007DF243 /* gnome.swift in Sources */,
 				D42CC16B2397307800A2E498 /* extensionUIView.swift in Sources */,
@@ -517,7 +544,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SJAAB85D5P;
 				INFOPLIST_FILE = kavakExercise/supportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -526,7 +553,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kavakExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -536,7 +563,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = SJAAB85D5P;
 				INFOPLIST_FILE = kavakExercise/supportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -545,7 +572,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kavakExercise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

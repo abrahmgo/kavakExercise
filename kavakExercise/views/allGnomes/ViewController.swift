@@ -9,7 +9,7 @@
 import UIKit
 import Hero
 
-class ViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate, dataFiler {
+class ViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, dataFiler {
     
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var filterView: filter!
@@ -18,10 +18,13 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     
     private var arrGnomes = [gnome]()
     private var arrGnomesFilter = [gnome]()
+    private var arrGnomesFilterSearchbar = [gnome]()
     private var enableFilter = false
     private var arrImages = [String:UIImage]()
     
     var dispatchGroup = DispatchGroup()
+    var searchActive : Bool = false
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +41,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         filterView.alpha = 0
         collectionView.delegate = self
         collectionView.dataSource = self
+        searchBar.delegate =  self
         if let layout = collectionView?.collectionViewLayout as? customLayout {
             layout.delegate = self
         }
@@ -292,27 +296,58 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         if let layout = self.collectionView.collectionViewLayout as? customLayout {
             layout.reloadData()
         }
+        
         collectionView.collectionViewLayout.invalidateLayout()
         collectionView.reloadData()
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            if enableFilter
+        if enableFilter
+        {
+            if searchActive
+            {
+                return arrGnomesFilterSearchbar.count
+            }
+            else
             {
                 return arrGnomesFilter.count
+            }
+        }
+        else
+        {
+            if searchActive
+            {
+                return arrGnomesFilterSearchbar.count
             }
             else
             {
                 return arrGnomes.count
             }
         }
-        
-        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let identifier = "Cell"
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! gnomeCollectionViewCell
-            cell.addShadowToCard(color: .black)
-            if enableFilter
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let identifier = "Cell"
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! gnomeCollectionViewCell
+        cell.addShadowToCard(color: .black)
+        if enableFilter
+        {
+            if searchActive
+            {
+                if arrGnomesFilterSearchbar.count != 0
+                {
+                    if arrImages.count != 0
+                    {
+                        if let image = arrImages[arrGnomesFilterSearchbar[indexPath.row].thumbnail]
+                        {
+                            cell.gnomeImage.image = image
+                        }
+                    }
+                    cell.gnomeName.text = arrGnomesFilterSearchbar[indexPath.row].name
+                }
+            }
+            else
             {
                 if arrImages.count != 0
                 {
@@ -322,6 +357,20 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
                     }
                 }
                 cell.gnomeName.text = arrGnomesFilter[indexPath.row].name
+            }
+        }
+        else
+        {
+            if searchActive
+            {
+                if arrImages.count != 0
+                {
+                    if let image = arrImages[arrGnomesFilterSearchbar[indexPath.row].thumbnail]
+                    {
+                        cell.gnomeImage.image = image
+                    }
+                }
+                cell.gnomeName.text = arrGnomesFilterSearchbar[indexPath.row].name
             }
             else
             {
@@ -334,15 +383,32 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
                 }
                 cell.gnomeName.text = arrGnomes[indexPath.row].name
             }
-            cell.gnomeImage.hero.id = "image\(indexPath.row)"
-            cell.hero.id = "Cell\(indexPath.row)"
-            cell.gnomeName.hero.id = "name\(indexPath.row)"
-            return cell
         }
-        
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "gnomeInfo") as! infoGnomeViewController
-            if enableFilter
+        cell.gnomeImage.hero.id = "image\(indexPath.row)"
+        cell.hero.id = "Cell\(indexPath.row)"
+        cell.gnomeName.hero.id = "name\(indexPath.row)"
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "gnomeInfo") as! infoGnomeViewController
+        if enableFilter
+        {
+            if searchActive
+            {
+                if arrGnomesFilterSearchbar.count != 0
+                {
+                    if arrImages.count != 0
+                    {
+                        if let image = arrImages[arrGnomesFilterSearchbar[indexPath.row].thumbnail]
+                        {
+                            VC1.imageGnome = image
+                        }
+                    }
+                    VC1.infoGnome = arrGnomesFilterSearchbar[indexPath.row]
+                }
+            }
+            else
             {
                 if arrImages.count != 0
                 {
@@ -352,6 +418,21 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
                     }
                 }
                 VC1.infoGnome = arrGnomesFilter[indexPath.row]
+            }
+            
+        }
+        else
+        {
+            if searchActive
+            {
+                if arrImages.count != 0
+                {
+                    if let image = arrImages[arrGnomesFilterSearchbar[indexPath.row].thumbnail]
+                    {
+                        VC1.imageGnome = image
+                    }
+                }
+                VC1.infoGnome = arrGnomesFilterSearchbar[indexPath.row]
             }
             else
             {
@@ -364,24 +445,69 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
                 }
                 VC1.infoGnome = arrGnomes[indexPath.row]
             }
-
-            VC1.hero.isEnabled = true
-            VC1.view.hero.id = "Cell\(indexPath.row)"
-            VC1.profileImage.hero.id = "image\(indexPath.row)"
-            VC1.nameLabel.hero.id = "name\(indexPath.row)"
-            self.navigationController?.hero.modalAnimationType = .auto
-            self.navigationController?.pushViewController(VC1, animated: true)
         }
         
-        func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
-            return CGPoint(x: 0, y: -30)
-        }
+        VC1.hero.isEnabled = true
+        VC1.view.hero.id = "Cell\(indexPath.row)"
+        VC1.profileImage.hero.id = "image\(indexPath.row)"
+        VC1.nameLabel.hero.id = "name\(indexPath.row)"
+        self.navigationController?.hero.modalAnimationType = .auto
+        self.navigationController?.pushViewController(VC1, animated: true)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, targetContentOffsetForProposedContentOffset proposedContentOffset: CGPoint) -> CGPoint {
+        return CGPoint(x: 0, y: -30)
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.collectionViewLayout.invalidateLayout()
     }
 
+    
+    // functions search bar
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+    }
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false
+        self.view.endEditing(true)
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        collectionView.reloadData()
+        self.view.endEditing(true)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false
+        self.view.endEditing(true)
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if enableFilter
+        {
+            arrGnomesFilterSearchbar = arrGnomesFilter.filter({ (flinkerFiltered) -> Bool in
+                return (flinkerFiltered.name.lowercased().contains(searchText.lowercased()))
+            })
+        }
+        else
+        {
+            arrGnomesFilterSearchbar = arrGnomes.filter({ (flinkerFiltered) -> Bool in
+                return (flinkerFiltered.name.lowercased().contains(searchText.lowercased()))
+            })
+        }
+        print(arrGnomesFilterSearchbar.count)
+        if(arrGnomesFilterSearchbar.count == 0){
+            searchActive = false;
+        } else {
+            searchActive = true;
+        }
+        self.collectionView.reloadData()
+    }
 }
 
 extension ViewController: customLayoutDelegate

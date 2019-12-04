@@ -33,7 +33,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         self.navigationController?.hero.isEnabled = true
         self.navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = "Citizens"
-        filterButton.backgroundColor = .lightGray
+        filterButton.backgroundColor = UIColor(hexString: "#7A8E8F")
         filterView.delegate = self
         filterView.alpha = 0
         collectionView.delegate = self
@@ -41,14 +41,21 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         if let layout = collectionView?.collectionViewLayout as? customLayout {
             layout.delegate = self
         }
+        utilActivityIndicator.shared.showLoader(view: navigationController!.view)
         api.shared.downloadData { (status, info) in
             if status != 200
             {
-                print("algo salio mal")
+                DispatchQueue.main.async {
+                     utilActivityIndicator.shared.hideLoader(view: self.navigationController!.view)
+                                   self.showAlertMessage(titleStr: "Gnome", messageStr: "The city did not allow you entry. 😱 \(status)")
+                }
             }
             else
             {
-                self.cleanData(data: info)
+                DispatchQueue.main.async {
+                    utilActivityIndicator.shared.hideLoader(view: self.navigationController!.view)
+                    self.cleanData(data: info)
+                }
             }
         }
     }
@@ -329,6 +336,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
             }
             cell.gnomeImage.hero.id = "image\(indexPath.row)"
             cell.hero.id = "Cell\(indexPath.row)"
+            cell.gnomeName.hero.id = "name\(indexPath.row)"
             return cell
         }
         
@@ -360,6 +368,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
             VC1.hero.isEnabled = true
             VC1.view.hero.id = "Cell\(indexPath.row)"
             VC1.profileImage.hero.id = "image\(indexPath.row)"
+            VC1.nameLabel.hero.id = "name\(indexPath.row)"
             self.navigationController?.hero.modalAnimationType = .auto
             self.navigationController?.pushViewController(VC1, animated: true)
         }

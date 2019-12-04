@@ -12,6 +12,7 @@ import Hero
 class infoGnomeViewController: UIViewController, segmentControlDelegate {
 
     
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var containerView: UIView!
     @IBOutlet var selector: segmentControl!
@@ -31,10 +32,12 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
         self.navigationController?.hero.isEnabled = true
         
         selector.delegate = self
+        selector.backgroundColor = UIColor(hexString: "#7A8E8F")
         selector.setButtonTitles(buttonTitles: ["Profile","Friends","Jobs"])
         if infoGnome != nil
         {
             setupView(index: 0)
+            nameLabel.text = infoGnome!.name
         }
         if imageGnome != nil
         {

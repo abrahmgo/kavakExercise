@@ -34,6 +34,10 @@
 		D4C2FAA9239815BB00A403CC /* buttonStyleBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */; };
 		D4C2FAAB23981C2D00A403CC /* extensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAAA23981C2D00A403CC /* extensionUIViewController.swift */; };
 		D4C43F3623982BFD00237A1A /* extensionUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C43F3523982BFD00237A1A /* extensionUIImage.swift */; };
+		D4DA9B11239835640065C102 /* activityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA9B10239835640065C102 /* activityIndicator.swift */; };
+		D4DA9B13239835780065C102 /* utilActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA9B12239835780065C102 /* utilActivityIndicator.swift */; };
+		D4DA9B15239837C00065C102 /* extensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA9B14239837C00065C102 /* extensionUIColor.swift */; };
+		D4DA9B1723983A2C0065C102 /* buttonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DA9B1623983A2C0065C102 /* buttonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +72,10 @@
 		D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonStyleBorder.swift; sourceTree = "<group>"; };
 		D4C2FAAA23981C2D00A403CC /* extensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIViewController.swift; sourceTree = "<group>"; };
 		D4C43F3523982BFD00237A1A /* extensionUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIImage.swift; sourceTree = "<group>"; };
+		D4DA9B10239835640065C102 /* activityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activityIndicator.swift; sourceTree = "<group>"; };
+		D4DA9B12239835780065C102 /* utilActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilActivityIndicator.swift; sourceTree = "<group>"; };
+		D4DA9B14239837C00065C102 /* extensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensionUIColor.swift; sourceTree = "<group>"; };
+		D4DA9B1623983A2C0065C102 /* buttonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +155,7 @@
 				D42CC16A2397307800A2E498 /* extensionUIView.swift */,
 				D4C2FAAA23981C2D00A403CC /* extensionUIViewController.swift */,
 				D4C43F3523982BFD00237A1A /* extensionUIImage.swift */,
+				D4DA9B14239837C00065C102 /* extensionUIColor.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 		D4661E122396F10E00B7502A /* views */ = {
 			isa = PBXGroup;
 			children = (
+				D4DA9B0F2398354C0065C102 /* activityIndicator */,
 				D4C2FAA423980B2600A403CC /* main */,
 				17152C5123976FAF00EAE6B7 /* customFilter */,
 				D48CB9C723971048009D7AAA /* customSegmentControl */,
@@ -259,8 +269,18 @@
 			isa = PBXGroup;
 			children = (
 				D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */,
+				D4DA9B1623983A2C0065C102 /* buttonStyle.swift */,
 			);
 			path = styles;
+			sourceTree = "<group>";
+		};
+		D4DA9B0F2398354C0065C102 /* activityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				D4DA9B10239835640065C102 /* activityIndicator.swift */,
+				D4DA9B12239835780065C102 /* utilActivityIndicator.swift */,
+			);
+			path = activityIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,8 +403,10 @@
 				D42CC16F23973EBD00A2E498 /* infoTableViewCell.swift in Sources */,
 				D481DB0323970C390020744C /* infoGnomeViewController.swift in Sources */,
 				D4C43F3623982BFD00237A1A /* extensionUIImage.swift in Sources */,
+				D4DA9B11239835640065C102 /* activityIndicator.swift in Sources */,
 				D42CC16D239737AA00A2E498 /* apiNames.swift in Sources */,
 				D42CC16923972F8400A2E498 /* professionTableViewCell.swift in Sources */,
+				D4DA9B1723983A2C0065C102 /* buttonStyle.swift in Sources */,
 				D48CB9D2239718BF009D7AAA /* friendsTableViewController.swift in Sources */,
 				D4661E142396F2BB00B7502A /* customLayout.swift in Sources */,
 				D48CB9CE239718A5009D7AAA /* professionsTableViewController.swift in Sources */,
@@ -399,7 +421,9 @@
 				D42CC16B2397307800A2E498 /* extensionUIView.swift in Sources */,
 				17E3F99B239629E3007DF243 /* api.swift in Sources */,
 				175469072396268D001A43A9 /* AppDelegate.swift in Sources */,
+				D4DA9B15239837C00065C102 /* extensionUIColor.swift in Sources */,
 				D48CB9C923971061009D7AAA /* segmentControl.swift in Sources */,
+				D4DA9B13239835780065C102 /* utilActivityIndicator.swift in Sources */,
 				D42CC17123973F4F00A2E498 /* friendsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

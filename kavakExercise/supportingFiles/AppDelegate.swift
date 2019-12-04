@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     {
         //UINavigationBar.appearance().barStyle = .blackOpaque
         UINavigationBar.appearance().tintColor = .black
-        UINavigationBar.appearance().barTintColor = .lightGray
+        UINavigationBar.appearance().barTintColor = UIColor(hexString: "#7A8E8F")
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.black]
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()

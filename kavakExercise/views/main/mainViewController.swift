@@ -12,8 +12,12 @@ class mainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     @IBAction func showCitizens(_ sender: Any) {

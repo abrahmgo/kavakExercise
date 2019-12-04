@@ -105,7 +105,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     }
     
     func defaultFilter(_ flag: Bool) {
-        print(flag)
+        disappearFilter()
     }
     
     func cleanFilterData(data: [String:Any]){
@@ -314,6 +314,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     
     func disappearFilter()
     {
+        //filterButton.isSelected = true
         collectionView.isUserInteractionEnabled = true
         //filterView.isHidden = true
         filterView.isUserInteractionEnabled = false

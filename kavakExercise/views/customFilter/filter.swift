@@ -153,8 +153,12 @@ class filter: UIView {
     
     @IBAction func defultFilter(_ sender: Any) {
         infoFilter.removeAll()
-        delegate?.defaultFilter(true)
         switchAge.isOn = false
+        switchWeight.isOn = false
+        switchHair.isOn = false
+        switchHeight.isOn = false
+        switchProfession.isOn = false
+        delegate?.defaultFilter(true)
     }
     
     @IBAction func enableAge(_ sender: UISwitch) {

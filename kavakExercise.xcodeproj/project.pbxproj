@@ -23,12 +23,16 @@
 		D42CC16D239737AA00A2E498 /* apiNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CC16C239737AA00A2E498 /* apiNames.swift */; };
 		D42CC16F23973EBD00A2E498 /* infoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CC16E23973EBD00A2E498 /* infoTableViewCell.swift */; };
 		D42CC17123973F4F00A2E498 /* friendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D42CC17023973F4F00A2E498 /* friendsTableViewCell.swift */; };
+		D46161E823984579007E223A /* coreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D46161E723984579007E223A /* coreDataManager.swift */; };
 		D4661E142396F2BB00B7502A /* customLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4661E132396F2BB00B7502A /* customLayout.swift */; };
 		D481DB0323970C390020744C /* infoGnomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D481DB0223970C390020744C /* infoGnomeViewController.swift */; };
 		D48CB9C923971061009D7AAA /* segmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9C823971061009D7AAA /* segmentControl.swift */; };
 		D48CB9CE239718A5009D7AAA /* professionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9CD239718A5009D7AAA /* professionsTableViewController.swift */; };
 		D48CB9D0239718B1009D7AAA /* infoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9CF239718B1009D7AAA /* infoTableViewController.swift */; };
 		D48CB9D2239718BF009D7AAA /* friendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48CB9D1239718BF009D7AAA /* friendsTableViewController.swift */; };
+		D4AAD6BD23984469005327F4 /* kevak.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4AAD6BB23984469005327F4 /* kevak.xcdatamodeld */; };
+		D4AAD6C023984548005327F4 /* Gnome+CoreDataClass copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AAD6BE23984548005327F4 /* Gnome+CoreDataClass copy.swift */; };
+		D4AAD6C123984548005327F4 /* Gnome+CoreDataProperties copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4AAD6BF23984548005327F4 /* Gnome+CoreDataProperties copy.swift */; };
 		D4B2505D2396F9A700392D85 /* gnomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B2505C2396F9A700392D85 /* gnomeCollectionViewCell.swift */; };
 		D4C2FAA623980B3600A403CC /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAA523980B3600A403CC /* mainViewController.swift */; };
 		D4C2FAA9239815BB00A403CC /* buttonStyleBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */; };
@@ -61,12 +65,16 @@
 		D42CC16C239737AA00A2E498 /* apiNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = apiNames.swift; sourceTree = "<group>"; };
 		D42CC16E23973EBD00A2E498 /* infoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableViewCell.swift; sourceTree = "<group>"; };
 		D42CC17023973F4F00A2E498 /* friendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsTableViewCell.swift; sourceTree = "<group>"; };
+		D46161E723984579007E223A /* coreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coreDataManager.swift; sourceTree = "<group>"; };
 		D4661E132396F2BB00B7502A /* customLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customLayout.swift; sourceTree = "<group>"; };
 		D481DB0223970C390020744C /* infoGnomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoGnomeViewController.swift; sourceTree = "<group>"; };
 		D48CB9C823971061009D7AAA /* segmentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = segmentControl.swift; sourceTree = "<group>"; };
 		D48CB9CD239718A5009D7AAA /* professionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = professionsTableViewController.swift; sourceTree = "<group>"; };
 		D48CB9CF239718B1009D7AAA /* infoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoTableViewController.swift; sourceTree = "<group>"; };
 		D48CB9D1239718BF009D7AAA /* friendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = friendsTableViewController.swift; sourceTree = "<group>"; };
+		D4AAD6BC23984469005327F4 /* kevak.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = kevak.xcdatamodel; sourceTree = "<group>"; };
+		D4AAD6BE23984548005327F4 /* Gnome+CoreDataClass copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gnome+CoreDataClass copy.swift"; sourceTree = "<group>"; };
+		D4AAD6BF23984548005327F4 /* Gnome+CoreDataProperties copy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Gnome+CoreDataProperties copy.swift"; sourceTree = "<group>"; };
 		D4B2505C2396F9A700392D85 /* gnomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gnomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D4C2FAA523980B3600A403CC /* mainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainViewController.swift; sourceTree = "<group>"; };
 		D4C2FAA8239815BB00A403CC /* buttonStyleBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonStyleBorder.swift; sourceTree = "<group>"; };
@@ -120,6 +128,7 @@
 		175469052396268D001A43A9 /* kavakExercise */ = {
 			isa = PBXGroup;
 			children = (
+				D4AAD6B92398440D005327F4 /* storage */,
 				D4C2FAA7239815A100A403CC /* styles */,
 				D4661E122396F10E00B7502A /* views */,
 				17E3F99F23963551007DF243 /* supportingFiles */,
@@ -185,6 +194,14 @@
 				16E758B4FE47FC925464DC5B /* Pods-kavakExercise.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D46161E62398456E007E223A /* singleton */ = {
+			isa = PBXGroup;
+			children = (
+				D46161E723984579007E223A /* coreDataManager.swift */,
+			);
+			path = singleton;
 			sourceTree = "<group>";
 		};
 		D4661E122396F10E00B7502A /* views */ = {
@@ -255,6 +272,25 @@
 				D42CC16823972F8400A2E498 /* professionTableViewCell.swift */,
 			);
 			path = professions;
+			sourceTree = "<group>";
+		};
+		D4AAD6B92398440D005327F4 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				D46161E62398456E007E223A /* singleton */,
+				D4AAD6BA2398442B005327F4 /* model */,
+			);
+			path = storage;
+			sourceTree = "<group>";
+		};
+		D4AAD6BA2398442B005327F4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D4AAD6BE23984548005327F4 /* Gnome+CoreDataClass copy.swift */,
+				D4AAD6BF23984548005327F4 /* Gnome+CoreDataProperties copy.swift */,
+				D4AAD6BB23984469005327F4 /* kevak.xcdatamodeld */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		D4C2FAA423980B2600A403CC /* main */ = {
@@ -403,7 +439,11 @@
 				D42CC16F23973EBD00A2E498 /* infoTableViewCell.swift in Sources */,
 				D481DB0323970C390020744C /* infoGnomeViewController.swift in Sources */,
 				D4C43F3623982BFD00237A1A /* extensionUIImage.swift in Sources */,
+				D4AAD6BD23984469005327F4 /* kevak.xcdatamodeld in Sources */,
 				D4DA9B11239835640065C102 /* activityIndicator.swift in Sources */,
+				D46161E823984579007E223A /* coreDataManager.swift in Sources */,
+				D4AAD6C023984548005327F4 /* Gnome+CoreDataClass copy.swift in Sources */,
+				D4AAD6C123984548005327F4 /* Gnome+CoreDataProperties copy.swift in Sources */,
 				D42CC16D239737AA00A2E498 /* apiNames.swift in Sources */,
 				D42CC16923972F8400A2E498 /* professionTableViewCell.swift in Sources */,
 				D4DA9B1723983A2C0065C102 /* buttonStyle.swift in Sources */,
@@ -626,6 +666,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D4AAD6BB23984469005327F4 /* kevak.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D4AAD6BC23984469005327F4 /* kevak.xcdatamodel */,
+			);
+			currentVersion = D4AAD6BC23984469005327F4 /* kevak.xcdatamodel */;
+			path = kevak.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 175468FB2396268D001A43A9 /* Project object */;
 }

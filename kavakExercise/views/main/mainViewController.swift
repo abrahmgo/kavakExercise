@@ -25,4 +25,10 @@ class mainViewController: UIViewController {
         self.navigationController?.pushViewController(VC1, animated: true)
     }
     
+    @IBAction func goFavorites(_ sender: Any) {
+        let VC1 = self.storyboard!.instantiateViewController(withIdentifier: "citizens") as! ViewController
+        VC1.useFlag = 2
+        self.navigationController?.pushViewController(VC1, animated: true)
+        
+    }
 }

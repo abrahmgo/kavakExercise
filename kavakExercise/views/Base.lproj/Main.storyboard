@@ -136,18 +136,27 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="58w-8K-iSN">
-                                <rect key="frame" x="16" y="324" width="343" height="47"/>
+                                <rect key="frame" x="16" y="324" width="289" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="38"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jGr-ow-qRI">
+                                <rect key="frame" x="322" y="324" width="47" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="nonFavorite"/>
+                                <connections>
+                                    <action selector="addFavorite:" destination="aVs-4x-jAg" eventType="touchUpInside" id="VJ7-qr-ae6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.47843137254901957" green="0.55686274509803924" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="nfF-e3-ZiC"/>
                     </view>
                     <connections>
                         <outlet property="containerView" destination="EIK-TA-ELf" id="7iD-Am-nHs"/>
+                        <outlet property="favoriteButton" destination="jGr-ow-qRI" id="xtC-7V-jtw"/>
                         <outlet property="nameLabel" destination="58w-8K-iSN" id="ECb-wI-Fxj"/>
                         <outlet property="profileImage" destination="nrn-M0-k2P" id="n6B-dJ-auQ"/>
                         <outlet property="selector" destination="6qq-Po-PJk" id="hFL-v3-3sq"/>
@@ -360,6 +369,9 @@
                                 <rect key="frame" x="68" y="355" width="239" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Favorites"/>
+                                <connections>
+                                    <action selector="goFavorites:" destination="Hoy-Cx-20U" eventType="touchUpInside" id="ppS-sg-Dgn"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.47843137254901957" green="0.55686274509803924" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
@@ -374,5 +386,6 @@
     </scenes>
     <resources>
         <image name="filter" width="64" height="64"/>
+        <image name="nonFavorite" width="32" height="32"/>
     </resources>
 </document>

@@ -16,6 +16,9 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
     @IBOutlet var profileImage: UIImageView!
     @IBOutlet var containerView: UIView!
     @IBOutlet var selector: segmentControl!
+    @IBOutlet var favoriteButton: UIButton!
+    
+    private let context = coreDataManager.shared.persistentContainer.viewContext
     
     var infoGnome : gnome?
     var imageGnome : UIImage?
@@ -47,6 +50,18 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
         api.shared.getGender(name: String(names[0]), lastName: String(names[1])) { (status, info) in
             self.cleanData(data: info)
         }
+        
+        if let result = coreDataManager.shared.searchRegister("Gnome", id: String(infoGnome!.id))
+        {
+            if result.count != 0
+            {
+                favoriteButton.setBackgroundImage(UIImage(named: "favorite"), for: .normal)
+            }
+            else
+            {
+                favoriteButton.setBackgroundImage(UIImage(named: "nonFavorite"), for: .normal)
+            }
+        }
     }
     
     func changeToIndex(index: Int) {
@@ -66,6 +81,64 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
         }
         DispatchQueue.main.async {
             //self.profileImage.image = UIImage(named: imageGender)
+        }
+    }
+    
+    //function coredata
+    
+    @IBAction func addFavorite(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected
+        {
+            saveGnome()
+            favoriteButton.setBackgroundImage(UIImage(named: "favorite"), for: .normal)
+        }
+        else
+        {
+            deleteGnome()
+            favoriteButton.setBackgroundImage(UIImage(named: "nonFavorite"), for: .normal)
+        }
+    }
+    
+    func saveGnome()
+    {
+        var message = ""
+        let gnomeSave = Gnome(entity: Gnome.entity(), insertInto: self.context)
+        gnomeSave.age = Int16(infoGnome!.age)
+        gnomeSave.name = infoGnome!.name
+        gnomeSave.height = infoGnome!.height
+        gnomeSave.id = Int16(infoGnome!.id)
+        gnomeSave.hairColor = infoGnome!.hairColor
+        gnomeSave.thumbnail = infoGnome!.thumbnail
+        gnomeSave.weight = infoGnome!.weight
+        gnomeSave.friends = infoGnome!.friends as NSObject
+        gnomeSave.professions = infoGnome!.friends as NSObject
+        if coreDataManager.shared.saveContext()
+        {
+            message = "you are making new friendships 😍"
+        }
+        else
+        {
+            message = "somethin is wrong 😩"
+        }
+        DispatchQueue.main.async {
+            self.showAlertMessage(titleStr: "Gnome", messageStr: message)
+        }
+    }
+    
+    func deleteGnome()
+    {
+        var message = ""
+        if coreDataManager.shared.deleteRegister("Gnome", id: String(infoGnome!.id))
+        {
+            message = "he doesn't want your friendship 🥶"
+        }
+        else
+        {
+            message = "somethin is wrong 😩"
+        }
+        DispatchQueue.main.async {
+            self.showAlertMessage(titleStr: "Gnome", messageStr: message)
         }
     }
     

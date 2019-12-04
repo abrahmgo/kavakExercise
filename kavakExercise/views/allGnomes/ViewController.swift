@@ -16,12 +16,15 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     @IBOutlet var filterButton: UIButton!
     @IBOutlet var searchBar: UISearchBar!
     
+    private let context = coreDataManager.shared.persistentContainer.viewContext
     private var arrGnomes = [gnome]()
     private var arrGnomesFilter = [gnome]()
+    private var localArrGnomes = [Gnome]()
     private var arrGnomesFilterSearchbar = [gnome]()
     private var enableFilter = false
     private var arrImages = [String:UIImage]()
     
+    var useFlag = 1
     var dispatchGroup = DispatchGroup()
     var searchActive : Bool = false
 
@@ -45,22 +48,55 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
         if let layout = collectionView?.collectionViewLayout as? customLayout {
             layout.delegate = self
         }
-        utilActivityIndicator.shared.showLoader(view: navigationController!.view)
-        api.shared.downloadData { (status, info) in
-            if status != 200
-            {
-                DispatchQueue.main.async {
-                     utilActivityIndicator.shared.hideLoader(view: self.navigationController!.view)
-                                   self.showAlertMessage(titleStr: "Gnome", messageStr: "The city did not allow you entry. 😱 \(status)")
+        if useFlag == 2
+        {
+            checkLocalData()
+        }
+        else
+        {
+            utilActivityIndicator.shared.showLoader(view: navigationController!.view)
+            api.shared.downloadData { (status, info) in
+                if status != 200
+                {
+                    DispatchQueue.main.async {
+                        utilActivityIndicator.shared.hideLoader(view: self.navigationController!.view)
+                        self.showAlertMessage(titleStr: "Gnome", messageStr: "The city didn't allow you entry. 😱 \(status)")
+                    }
+                }
+                else
+                {
+                    DispatchQueue.main.async {
+                        utilActivityIndicator.shared.hideLoader(view: self.navigationController!.view)
+                        self.cleanData(data: info)
+                    }
                 }
             }
-            else
+        }
+    }
+    
+    func checkLocalData()
+    {
+        do{
+            localArrGnomes = try context.fetch(Gnome.fetchRequest())
+            if localArrGnomes.count != 0
             {
+                for data in localArrGnomes
+                {
+                    if let arrayFriends = data.friends as! NSArray as? [String], let arrayProfessions = data.professions as! NSArray as? [String]
+                    {
+                        let gnomeLocal = gnome(id: Int(data.id), name: data.name!, thumbnail: data.thumbnail!, age: Int(data.age), weight: data.weight, height: data.height, hairColor: data.hairColor!, professions: arrayProfessions, friends: arrayFriends)
+                        arrGnomes.append(gnomeLocal)
+                    }
+                }
                 DispatchQueue.main.async {
-                    utilActivityIndicator.shared.hideLoader(view: self.navigationController!.view)
-                    self.cleanData(data: info)
+                    self.downloadImages()
+                    self.collectionView.reloadData()
                 }
             }
+            
+        }catch let error as NSError{
+            self.showAlertMessage(titleStr: "Gnome", messageStr: "we can't recover your family 😓. \(error)")
+            print("error \(error) \(error.userInfo)")
         }
     }
     

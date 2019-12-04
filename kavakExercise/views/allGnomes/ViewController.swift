@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet var collectionView: UICollectionView!
+    @IBOutlet weak var filterView: filter!
     private var arrGnomes = [gnome]()
 
     override func viewDidLoad() {

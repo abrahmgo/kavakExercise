@@ -9,8 +9,8 @@
 import UIKit
 import Hero
 
-class ViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, dataFiler {
-    
+class ViewController: UIViewController,  UICollectionViewDataSource, UICollectionViewDelegate, UISearchBarDelegate, dataFiler, updateViewFavorites {
+        
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet weak var filterView: filter!
     @IBOutlet var filterButton: UIButton!
@@ -32,13 +32,6 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     override func viewDidLoad() {
         super.viewDidLoad()
         initView()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-//        if useFlag == 2
-//        {
-//            checkLocalData()
-//        }
     }
     
     func initView()
@@ -83,6 +76,7 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
     
     func checkLocalData()
     {
+        arrGnomes.removeAll()
         do{
             localArrGnomes = try context.fetch(Gnome.fetchRequest())
             if localArrGnomes.count != 0
@@ -98,6 +92,10 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
                 DispatchQueue.main.async {
                     self.downloadImages()
                     self.collectionView.reloadData()
+                    self.collectionView.collectionViewLayout.invalidateLayout()
+                    if let layout = self.collectionView.collectionViewLayout as? customLayout {
+                        layout.reloadData()
+                    }
                 }
             }
             else
@@ -502,6 +500,11 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
                 VC1.infoGnome = arrGnomes[indexPath.row]
             }
         }
+        if useFlag == 2
+        {
+            VC1.delegate = self
+            VC1.useFlag = 2
+        }
         
         VC1.hero.isEnabled = true
         VC1.view.hero.id = "Cell\(indexPath.row)"
@@ -563,6 +566,10 @@ class ViewController: UIViewController,  UICollectionViewDataSource, UICollectio
             searchActive = true;
         }
         self.collectionView.reloadData()
+    }
+    
+    func updateView(_ flag: Bool) {
+        checkLocalData()
     }
 }
 

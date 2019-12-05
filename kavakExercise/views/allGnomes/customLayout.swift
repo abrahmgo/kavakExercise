@@ -42,6 +42,7 @@ class customLayout: UICollectionViewLayout {
     
     override func prepare() {
         // 1
+        cache.removeAll()
         guard
             cache.isEmpty,
             let collectionView = collectionView

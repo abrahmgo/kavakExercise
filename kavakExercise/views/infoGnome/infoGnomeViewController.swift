@@ -22,6 +22,8 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
     
     var infoGnome : gnome?
     var imageGnome : UIImage?
+    var useFlag = 1
+    weak var delegate: updateViewFavorites?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,6 +140,10 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
         {
             message = "somethin is wrong 😩"
         }
+        if useFlag == 2
+        {
+            delegate?.updateView(true)
+        }
         DispatchQueue.main.async {
             self.showAlertMessage(titleStr: "Gnome", messageStr: message)
         }
@@ -230,4 +236,8 @@ class infoGnomeViewController: UIViewController, segmentControlDelegate {
         
         return viewController
     }()
+}
+
+protocol updateViewFavorites: class {
+    func updateView(_ flag: Bool)
 }
